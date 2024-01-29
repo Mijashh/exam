@@ -1,0 +1,16 @@
+<!-- FILEPATH: /home/mijashadhikari/coding/NewDjango/Exams/Exam_Details/templates/Exam_Details/index.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exam Sections</title>
+</head>
+<body>
+    <h1>Exam Sections</h1>
+    <ul>
+        {% for section in sections %}
+            <li>{{ section }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
