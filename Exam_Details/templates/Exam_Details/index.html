@@ -1,21 +1,19 @@
-{% load static %}
 <html>
 <head>
     <title>Exam Details</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="{% static 'Exam_Details/style.css' %}">
 </head>
 <body>
-    <h1>Exam Details</h1>
-    <div class="flex-container">
+    <h1 class="text-3xl font-semibold mb-4">Exam Details</h1>
+    <div class="flex flex-row space-x-10">
         {% for exam in exam_items %}
-            <div class="flex-item">
-                <a href="/exams/{{ exam.exam_name }}">{{ exam.exam_name}}<br>
-                    {{exam.exam_date}}
-                </a>
+            <div class="w-1/7 p-4 bg-gray-100 rounded shadow-md">
+                <a href="{{exam.slug}}" class="block text-xl font-semibold mb-2">{{ exam.exam_name }}</a>
+                <p class="text-gray-600">{{ exam.exam_date }}</p>
             </div>
         {% endfor %}
     </div>
 </body>
 </html>
+
 

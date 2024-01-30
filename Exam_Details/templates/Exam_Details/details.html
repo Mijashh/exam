@@ -11,11 +11,12 @@
                 <h2 class="text-xl font-semibold mb-2">{{ exam_detail.exam_index.exam_name }}</h2>
                 <div class="mb-4">
                     <strong>Description:</strong>
-                    <p class="text-gray-600">{{ exam_detail.exam_description }}</p>
+                    <p class="text-gray-600">
+                        {{ exam_detail.exam_description}}</p>
                 </div>
                 <div class="mb-4">
                     <strong>Syllabus:</strong>
-                    <p class="text-gray-600">{{ exam_detail.exam_syallabus }}</p>
+                    <p class="text-gray-600">{{ exam_detail.exam_syallabus| linebreaks }}</p>
                 </div>
                 <div class="mb-4">
                     <strong>Eligibility:</strong>

@@ -1,6 +1,7 @@
+from django.http import Http404
 from django.shortcuts import render
-from django.http import HttpResponse
-from .models import ExamIndex,ExamDetails
+
+from .models import ExamDetails, ExamIndex
 
 
 def exam_view(request):
@@ -8,6 +9,7 @@ def exam_view(request):
     return render(request,"Exam_Details/index.html",{"exam_items":exam_items})
 
 def exam_details_view(request,value):
-    exam_details=ExamDetails.objects.all() 
-    return render(request,"Exam_Details/details.html",{"exam_details":exam_details})
-
+    exam_details = ExamDetails.objects.filter(exam_index__slug=value)
+    if not exam_details:
+        raise Http404
+    return render(request, "Exam_Details/details.html", {"exam_details": exam_details})
