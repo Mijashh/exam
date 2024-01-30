@@ -1,0 +1,34 @@
+<htlml>
+    <head>
+        <title>Exam Details</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body>    
+        <div class="bg-gray-100 p-4">
+            <h1 class="text-3xl font-semibold mb-4">Exam Details</h1>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                {% for exam_detail in exam_details %}
+                <h2 class="text-xl font-semibold mb-2">{{ exam_detail.exam_index.exam_name }}</h2>
+                <div class="mb-4">
+                    <strong>Description:</strong>
+                    <p class="text-gray-600">{{ exam_detail.exam_description }}</p>
+                </div>
+                <div class="mb-4">
+                    <strong>Syllabus:</strong>
+                    <p class="text-gray-600">{{ exam_detail.exam_syallabus }}</p>
+                </div>
+                <div class="mb-4">
+                    <strong>Eligibility:</strong>
+                    <p class="text-gray-600">{{ exam_detail.exam_eligibility }}</p>
+                </div>
+                <div>
+                    <strong>Official Website:</strong>
+                    <a href="{{ exam_detail.exam_official_website }}" class="text-blue-500 hover:underline">{{ exam_detail.exam_official_website }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </body>
+</htlml>
+
+

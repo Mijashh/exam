@@ -1,16 +1,21 @@
-<!-- FILEPATH: /home/mijashadhikari/coding/NewDjango/Exams/Exam_Details/templates/Exam_Details/index.html -->
-
-<!DOCTYPE html>
+{% load static %}
 <html>
 <head>
-    <title>Exam Sections</title>
+    <title>Exam Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{% static 'Exam_Details/style.css' %}">
 </head>
 <body>
-    <h1>Exam Sections</h1>
-    <ul>
-        {% for section in sections %}
-            <li>{{ section }}</li>
+    <h1>Exam Details</h1>
+    <div class="flex-container">
+        {% for exam in exam_items %}
+            <div class="flex-item">
+                <a href="/exams/{{ exam.exam_name }}">{{ exam.exam_name}}<br>
+                    {{exam.exam_date}}
+                </a>
+            </div>
         {% endfor %}
-    </ul>
+    </div>
 </body>
 </html>
+
