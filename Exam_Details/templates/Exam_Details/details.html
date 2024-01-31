@@ -5,8 +5,10 @@
     </head>
     <body>    
         <div class="bg-gray-100 p-4">
-            <h1 class="text-3xl font-semibold mb-4">Exam Details</h1>
-            <div class="bg-white p-4 rounded-lg shadow-md">
+            <div class="flex justify-center">
+                <h1 class="text-3xl font-semibold mb-4">Exam Details</h1>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md mx-auto" style="width: 50%;">
                 {% for exam_detail in exam_details %}
                 <h2 class="text-xl font-semibold mb-2">{{ exam_detail.exam_index.exam_name }}</h2>
                 <div class="mb-4">
@@ -20,16 +22,16 @@
                 </div>
                 <div class="mb-4">
                     <strong>Eligibility:</strong>
-                    <p class="text-gray-600">{{ exam_detail.exam_eligibility }}</p>
+                    <p class="text-gray-600">{{ exam_detail.exam_eligibility|linebreaks }}</p>
                 </div>
                 <div class="mb-4">
                     <strong>Courses you can attend:</strong>
-                    <p class="text-gray-600">{{ exam_detail.courses_offered}}</p>
+                    <p class="text-gray-600">{{ exam_detail.courses_offered|linebreaks}}</p>
                 <div>
                 <br>
                 <div class="mb-4">
                     <strong>Model Question:</strong>
-                    <iframe src="/{{exam_detail.model_papers}}" width="50%" height="600"></iframe>
+                    <iframe src="/{{exam_detail.model_papers}}" width="100%" height="600"></iframe>
                 </div>
                     <strong>Official Website:</strong>
                     <a href="{{exam_detail.exam_official_website }}" class="text-blue-500 hover:underline">{{ exam_detail.exam_official_website }}</a>
@@ -39,4 +41,3 @@
         </div>
     </body>
 </htlml>
-

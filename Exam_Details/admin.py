@@ -1,8 +1,9 @@
 from django.contrib import admin
-from .models import ExamIndex,ExamDetails
+
+from .models import ExamDetails, ExamIndex
 
 
-class ExamDetailsInline(admin.StackedInline):  # You can also use admin.StackedInline for a different display style
+class ExamDetailsInline(admin.StackedInline):  
     model = ExamDetails
     extra = 1  # The number of empty forms to display
     max_num=1
@@ -10,14 +11,17 @@ class ExamDetailsInline(admin.StackedInline):  # You can also use admin.StackedI
 
 class ExamIndexAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None, {'fields': ['exam_name', 'university','exam_date','slug']}),
+        (None, {'fields': ['exam_name','slug', 'university','exam_date']}),
     ]
     prepopulated_fields = {
         "slug": ("exam_name",),
     }
     inlines = [ExamDetailsInline]
-    ExamIndex._meta.verbose_name = "Exam Details"
 
 
-# Register your models here.
+
+
+admin.site.site_header = "Exam Details Admin"
+admin.site.site_title = "Exam Details Admin Portal"
+admin.site.index_title = "Welcome to Exam Details Portal"
 admin.site.register(ExamIndex, ExamIndexAdmin)
