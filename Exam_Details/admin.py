@@ -16,6 +16,7 @@ class ExamIndexAdmin(admin.ModelAdmin):
     prepopulated_fields = {
         "slug": ("exam_name",),
     }
+    list_filter = ('university',"exam_date")
     inlines = [ExamDetailsInline]
 
 
