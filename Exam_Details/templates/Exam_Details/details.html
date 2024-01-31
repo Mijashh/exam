@@ -1,3 +1,4 @@
+{% load static %}
 <htlml>
     <head>
         <title>Exam Details</title>
@@ -22,7 +23,15 @@
                     <strong>Eligibility:</strong>
                     <p class="text-gray-600">{{ exam_detail.exam_eligibility }}</p>
                 </div>
+                <div class="mb-4">
+                    <strong>Courses you can attend:</strong>
+                    <p class="text-gray-600">{{ exam_detail.courses_offered}}</p>
                 <div>
+    
+                <div class="mb-4">
+                    <strong>Model Question:</strong>
+                    <iframe src="{% static 'Exam_Details/Model_Papers/CEE_Model_Question_Solution_in_Help_For_Entrance_1.pdf' %}" width="50%" height="600"></iframe>
+                </div>
                     <strong>Official Website:</strong>
                     <a href="{{ exam_detail.exam_official_website }}" class="text-blue-500 hover:underline">{{ exam_detail.exam_official_website }}</a>
                     {% endfor %}

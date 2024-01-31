@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Exam_Details',
-    'autoslug'
+    'autoslug',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -104,6 +105,16 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+CKEDITOR_UPLOAD_PATH = "uploads/"  # Define the path where uploaded files will be stored.
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',  # You can customize the toolbar options.
+        'height': 300,      # Set the editor height.
+        'width': 600,       # Set the editor width.
+    },
+}
+
 
 
 # Internationalization
