@@ -25,7 +25,3 @@ class ExamDetails(models.Model):
     model_papers=models.FileField(upload_to="static/Exam_Details/Model_Papers")
     def __str__(self):
         return self.exam_index.exam_name
-
-# class Exam_resources(models.Model):
-#     exam_index=models.ForeignKey(Exam_Index,on_delete=models.CASCADE)
-#     exam_resources=models.FileField(upload_to="Exam_Details/Resources")
