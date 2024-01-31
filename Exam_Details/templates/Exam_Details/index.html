@@ -5,13 +5,32 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <div class="mx-auto max-w-screen-sm py-4">
+    <div class="mx-auto max-w-screen-md py-4">
         <h1 class="text-3xl font-semibold mb-4">Exam Details</h1>
+        
+        <form method="GET" action="{% url 'filter_exams' %}">
+            <div class="flex">
+                <!-- Checkbox Filter Column -->
+                <div class="w-1/4 pr-4">
+                    <h2 class="text-xl font-semibold mb-2">Filter by Universities:</h2>
+                    <div class="mb-2">
+                        <input type="checkbox" id="TU" name="options" value="TU" class="mr-2">
+                        <label for="TU">TU</label>
+                    </div>
+                    <div class="mb-2">
+                        <input type="checkbox" id="KU" name="options" value="KU" class="mr-2">
+                        <label for="KU">KU</label>
+                    </div>
+                    <!-- Add more checkboxes as needed -->
+                    <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded">Apply Filter</button>
+                </div>
+    <div class="mx-auto max-w-screen-sm py-4">
         <div class="flex flex-row space-x-10">
             {% for exam in exam_items %}
                 <div class="w-1/7 p-4 bg-gray-100 rounded shadow-md">
                     <a href="{{exam.slug}}" class="block text-xl font-semibold mb-2">{{ exam.exam_name }}</a>
                     <p class="text-gray-600">{{ exam.exam_date }}</p>
+                    <p class="text-gray-600">{{ exam.university }}</p>
                 </div>
             {% endfor %}
         </div>
