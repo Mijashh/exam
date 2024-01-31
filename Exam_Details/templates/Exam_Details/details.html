@@ -1,4 +1,3 @@
-{% load static %}
 <htlml>
     <head>
         <title>Exam Details</title>
@@ -30,15 +29,14 @@
     
                 <div class="mb-4">
                     <strong>Model Question:</strong>
-                    <iframe src="{% static 'Exam_Details/Model_Papers/CEE_Model_Question_Solution_in_Help_For_Entrance_1.pdf' %}" width="50%" height="600"></iframe>
+                    <iframe src="/{{exam_detail.model_papers}}" width="50%" height="600"></iframe>
                 </div>
                     <strong>Official Website:</strong>
-                    <a href="{{ exam_detail.exam_official_website }}" class="text-blue-500 hover:underline">{{ exam_detail.exam_official_website }}</a>
+                    <a href="{{exam_detail.exam_official_website }}" class="text-blue-500 hover:underline">{{ exam_detail.exam_official_website }}</a>
                     {% endfor %}
                 </div>
             </div>
         </div>
     </body>
 </htlml>
-
 

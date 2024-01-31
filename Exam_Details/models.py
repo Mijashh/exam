@@ -22,7 +22,7 @@ class ExamDetails(models.Model):
     exam_eligibility=models.TextField()
     exam_official_website=models.URLField()
     courses_offered=models.TextField()
-    model_papers=models.FileField(upload_to="Exam_Details/static/Exam_Details/Model_Papers")
+    model_papers=models.FileField(upload_to="static/Exam_Details/Model_Papers")
     def __str__(self):
         return self.exam_index.exam_name
 
