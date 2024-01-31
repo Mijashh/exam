@@ -1,4 +1,4 @@
-from django.http import Http404, HttpResponse
+from django.http import Http404, HttpResponse,HttpResponseRedirect
 from django.shortcuts import render
 
 from .models import ExamDetails, ExamIndex
@@ -16,6 +16,8 @@ def exam_details_view(request,value):
 
 def filter_exams(request):
     selected_options = request.GET.getlist('options')  
+    if not selected_options:
+        return HttpResponseRedirect("/exams/")
     
     filtered_exams = ExamDetails.objects.filter(exam_index__university__in=selected_options)
     context = {'filtered_exams': filtered_exams}
