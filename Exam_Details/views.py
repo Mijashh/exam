@@ -22,7 +22,5 @@ def filter_exams(request):
     filtered_exams = ExamDetails.objects.filter(exam_index__university__in=selected_options)
     context = {'filtered_exams': filtered_exams}
     
-    # Debug statement
-    print("Filtered exams:", filtered_exams)
     
     return render(request, 'Exam_Details/filter.html', context)
