@@ -1,5 +1,5 @@
 from django.db import models
-from autoslug import AutoSlugField
+
 
 class ExamIndex(models.Model):
     exam_name = models.CharField(max_length=200)
@@ -11,8 +11,6 @@ class ExamIndex(models.Model):
     def __str__(self):
         return self.exam_name
     
-    class Meta:
-        db_table = "index"
     
 
 class ExamDetails(models.Model):
